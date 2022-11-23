@@ -8,17 +8,17 @@
 
 
 cat >$NETIP <<-EOF
-uci set network.lan.ipaddr='192.168.2.2'                      # IPv4 地址(openwrt后台地址)
+uci set network.lan.ipaddr='192.168.1.1'                      # IPv4 地址(openwrt后台地址)
 uci set network.lan.netmask='255.255.255.0'                   # IPv4 子网掩码
-#uci set network.lan.gateway='192.168.2.1'                    # 旁路由设置 IPv4 网关（去掉uci前面的#生效）
-#uci set network.lan.broadcast='192.168.2.255'                # 旁路由设置 IPv4 广播（去掉uci前面的#生效）
+#uci set network.lan.gateway='192.168.1.11'                    # 旁路由设置 IPv4 网关（去掉uci前面的#生效）
+#uci set network.lan.broadcast='192.168.1.255'                # 旁路由设置 IPv4 广播（去掉uci前面的#生效）
 #uci set network.lan.dns='223.5.5.5 114.114.114.114'          # 旁路由设置 DNS(多个DNS要用空格分开)（去掉uci前面的#生效）
 uci set network.lan.delegate='0'                              # 去掉LAN口使用内置的 IPv6 管理(若用IPV6请把'0'改'1')
 uci set dhcp.@dnsmasq[0].filter_aaaa='1'                      # 禁止解析 IPv6 DNS记录(若用IPV6请把'1'改'0')
 
 #uci set dhcp.lan.ignore='1'                                  # 旁路由关闭DHCP功能（去掉uci前面的#生效）
 #uci delete network.lan.type                                  # 旁路由去掉桥接模式（去掉uci前面的#生效）
-uci set system.@system[0].hostname='OpenWrt-123'              # 修改主机名称为OpenWrt-123
+uci set system.@system[0].hostname='玩客云OpenWrt'              # 修改主机名称为OpenWrt-123
 #uci set ttyd.@ttyd[0].command='/bin/login -f root'           # 设置ttyd免帐号登录（去掉uci前面的#生效）
 
 # 如果有用IPV6的话,可以使用以下命令创建IPV6客户端(LAN口)（去掉全部代码uci前面#号生效）
@@ -62,7 +62,7 @@ export OpenClash_branch='master'
 # 可选内核 （5.4） （5.10） （5.15） （5.19） （6.0）
 
 cat >"$AMLOGIC_SH_PATH" <<-EOF
-amlogic_model=s905x3_s905x2_s905x_s905w_s905d_s922x_s912
+amlogic_model=s805
 amlogic_kernel=5.15.25_5.10.100 -a true
 rootfs_size=960
 EOF
