@@ -19,7 +19,7 @@ uci set dhcp.@dnsmasq[0].filter_aaaa='1'                      # 禁止解析 IPv
 #uci set dhcp.lan.ignore='1'                                  # 旁路由关闭DHCP功能（去掉uci前面的#生效）
 #uci delete network.lan.type                                  # 旁路由去掉桥接模式（去掉uci前面的#生效）
 uci set system.@system[0].hostname='玩客云OpenWrt'              # 修改主机名称为OpenWrt-123
-#uci set ttyd.@ttyd[0].command='/bin/login -f root'           # 设置ttyd免帐号登录（去掉uci前面的#生效）
+uci set ttyd.@ttyd[0].command='/bin/login -f root'           # 设置ttyd免帐号登录（去掉uci前面的#生效）
 
 # 如果有用IPV6的话,可以使用以下命令创建IPV6客户端(LAN口)（去掉全部代码uci前面#号生效）
 #uci set network.ipv6=interface
@@ -64,7 +64,7 @@ export OpenClash_branch='master'
 cat >"$AMLOGIC_SH_PATH" <<-EOF
 amlogic_model=s905d
 amlogic_kernel=5.15.25_5.10.100 -a true
-rootfs_size=960
+rootfs_size=1024
 EOF
 
 
