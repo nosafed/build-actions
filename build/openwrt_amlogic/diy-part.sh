@@ -8,11 +8,11 @@
 
 
 cat >$NETIP <<-EOF
-uci set network.lan.ipaddr='192.168.2.2'                      # IPv4 地址(openwrt后台地址)
+uci set network.lan.ipaddr='192.168.1.1'                      # IPv4 地址(openwrt后台地址)
 uci set network.lan.netmask='255.255.255.0'                   # IPv4 子网掩码
-#uci set network.lan.gateway='192.168.2.1'                    # 旁路由设置 IPv4 网关（去掉uci前面的#生效）
-#uci set network.lan.broadcast='192.168.2.255'                # 旁路由设置 IPv4 广播（去掉uci前面的#生效）
-#uci set network.lan.dns='223.5.5.5 114.114.114.114'          # 旁路由设置 DNS(多个DNS要用空格分开)（去掉uci前面的#生效）
+uci set network.lan.gateway='192.168.1.11'                    # 旁路由设置 IPv4 网关（去掉uci前面的#生效）
+uci set network.lan.broadcast='192.168.1.255'                # 旁路由设置 IPv4 广播（去掉uci前面的#生效）
+uci set network.lan.dns='223.5.5.5 114.114.114.114'          # 旁路由设置 DNS(多个DNS要用空格分开)（去掉uci前面的#生效）
 uci set network.lan.delegate='0'                              # 去掉LAN口使用内置的 IPv6 管理(若用IPV6请把'0'改'1')
 uci set dhcp.@dnsmasq[0].filter_aaaa='1'                      # 禁止解析 IPv6 DNS记录(若用IPV6请把'1'改'0')
 
@@ -64,7 +64,7 @@ export OpenClash_branch='master'
 cat >"$AMLOGIC_SH_PATH" <<-EOF
 amlogic_model=s905x3_s905x2_s905x_s905w_s905d_s922x_s912
 amlogic_kernel=5.15.25_5.10.100 -a true
-rootfs_size=960
+rootfs_size=1024
 EOF
 
 
